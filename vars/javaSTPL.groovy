@@ -1,6 +1,7 @@
 import com.hcl.ing.stpl.Checkout
 import com.hcl.ing.stpl.flow.Flow
 import com.hcl.ing.stpl.maven.MavenBuild
+import com.hcl.ing.stpl.maven.MavenPublish
 import com.hcl.ing.stpl.maven.MavenSonarScan
 
 
@@ -14,7 +15,7 @@ def call(Map<String, String> projectConfig) {
         Checkout.run(this, config)
         MavenBuild.run(this, config)
         MavenSonarScan.run(this, config)
-
+        MavenPublish.run(this, config)
 
 
     }

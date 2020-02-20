@@ -19,7 +19,7 @@ class MavenPublish extends BuildingBlock implements Serializable{
     @Override
     def run() {
 
-        script.stage("Maven Build") {
+        script.stage("Maven Publish") {
             script.withDockerContainer('maven') {
                 script.sh "mvn --version"
             }

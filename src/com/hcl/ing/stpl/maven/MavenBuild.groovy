@@ -22,7 +22,7 @@ class MavenBuild extends BuildingBlock implements Serializable {
 
         script.stage("Maven Build") {
             script.withDockerContainer('maven') {
-                script.sh "mvn --version"
+                script.sh "mvn clean install"
             }
 
         }
