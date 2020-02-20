@@ -17,6 +17,10 @@ class MavenBuild extends BuildingBlock implements Serializable {
         EXECUTOR_IMAGE = "maven"
     }
 
+    /**
+     * Performs a local maven install
+     * @return
+     */
     @Override
     def run() {
 

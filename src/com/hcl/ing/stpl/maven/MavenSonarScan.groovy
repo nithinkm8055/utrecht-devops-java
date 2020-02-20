@@ -16,14 +16,19 @@ class MavenSonarScan extends BuildingBlock implements Serializable {
         EXECUTOR_IMAGE = "maven"
     }
 
+    /**
+     * Perform sonar scan on the pipeline using maven-sonar-plugin
+     * @return
+     */
     @Override
     def run() {
 
         script.stage("Maven Sonar Scan") {
             script.withDockerContainer('maven') {
-                script.withSonarQubeEnv {
+                script.withSonarQubeEnv(credentialsId: 'sonarqube-server') {
                     script.sh "mvn sonar:sonar"
                 }
+
             }
         }
 
