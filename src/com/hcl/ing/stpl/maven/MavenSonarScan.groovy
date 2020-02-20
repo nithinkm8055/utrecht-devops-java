@@ -5,7 +5,7 @@ import com.hcl.ing.stpl.buildingblock.BuildingBlock
 class MavenSonarScan extends BuildingBlock implements Serializable{
 
     static def run(script, config) {
-        BuildingBlock bb = new MavenBuild(script)
+        BuildingBlock bb = new MavenSonarScan(script)
         bb.initialize(config)
         bb.run()
 
