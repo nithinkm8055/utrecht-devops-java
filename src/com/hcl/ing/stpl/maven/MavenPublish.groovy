@@ -2,7 +2,7 @@ package com.hcl.ing.stpl.maven
 
 import com.hcl.ing.stpl.buildingblock.BuildingBlock
 
-class MavenPublish extends BuildingBlock implements Serializable{
+class MavenPublish extends BuildingBlock implements Serializable {
 
     static def run(script, config) {
         BuildingBlock bb = new MavenPublish(script)
@@ -20,10 +20,7 @@ class MavenPublish extends BuildingBlock implements Serializable{
     def run() {
 
         script.stage("Maven Publish") {
-            script.withDockerContainer('maven') {
-                script.sh "mvn --version"
-            }
-
+            archiveArtifacts '**/*.jar'
         }
 
     }
