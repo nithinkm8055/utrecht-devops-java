@@ -9,7 +9,7 @@ def call(Map<String, String> projectConfig) {
     Flow flow = new Flow(this, 'STPL_Java')
     def config = flow.initConfig(projectConfig)
 
-    flow.run(config) {
+    flow.run {
 
         Checkout.run(this, config)
         MavenBuild.run(this, config)
