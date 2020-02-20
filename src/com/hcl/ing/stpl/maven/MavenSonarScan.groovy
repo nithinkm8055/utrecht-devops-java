@@ -24,8 +24,8 @@ class MavenSonarScan extends BuildingBlock implements Serializable {
     def run() {
 
         script.stage("Maven Sonar Scan") {
-            script.withDockerContainer('maven') {
-                script.withSonarQubeEnv(credentialsId: 'sonarqube-server') {
+            script.withSonarQubeEnv(credentialsId: 'sonarqube-server') {
+                script.withDockerContainer(EXECUTOR_IMAGE) {
                     script.sh "mvn sonar:sonar -b"
                 }
 
