@@ -18,8 +18,7 @@ class Checkout extends BuildingBlock implements Serializable{
     def run() {
 
         script.stage("Checkout") {
-            script.echo "Checkout"
-            //script.checkout script.scm
+            script.checkout script.scm
         }
 
     }
