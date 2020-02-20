@@ -20,7 +20,7 @@ class MavenPublish extends BuildingBlock implements Serializable {
     def run() {
 
         script.stage("Maven Publish") {
-            archiveArtifacts '**/*.jar'
+            script.archiveArtifacts '**/*.jar'
         }
 
     }
