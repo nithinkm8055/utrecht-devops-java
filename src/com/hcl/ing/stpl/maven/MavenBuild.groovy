@@ -21,7 +21,10 @@ class MavenBuild extends BuildingBlock implements Serializable {
     def run() {
 
         script.stage("Maven Build") {
-            script.sh "mvn --version"
+            script.withDockerContainer('maven') {
+                script.sh "mvn --version"
+            }
+
         }
 
     }

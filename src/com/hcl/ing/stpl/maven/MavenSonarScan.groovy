@@ -19,8 +19,11 @@ class MavenSonarScan extends BuildingBlock implements Serializable{
     @Override
     def run() {
 
-        script.stage("Maven Sonar Scan") {
-            script.sh "mvn --version"
+        script.stage("Maven Build") {
+            script.withDockerContainer('maven') {
+                script.sh "mvn --version"
+            }
+
         }
 
     }
